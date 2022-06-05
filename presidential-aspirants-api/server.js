@@ -70,7 +70,7 @@ app.get('/api/:aspirant', (req, res) => {
     const aspirantDetail = req.params.aspirant;
 
 //condition to check if an aspirant request exist. if true, respond with aspirant details else respond with 'unknown'
-    (presidentialAspirants[aspirantDetail]) ? res.json(presidentialAspirants[aspirantDetail]) : res.json(presidentialAspirants['unknownn']);
+    (presidentialAspirants[aspirantDetail]) ? res.json(presidentialAspirants[aspirantDetail]) : res.json(presidentialAspirants['unknown']);
 
     // console.log(presidentialAspirants[req.params.aspirant])
 })
