@@ -58,6 +58,12 @@ app.get('/api', (req, res) => {
     res.json(presidentialAspirants)
 })
 
+//when user makes '/api/aspirants' request, respond with object of the requested param
+app.get('/api/:aspirant', (req, res) => {
+    res.json(presidentialAspirants[req.params.aspirant])
+
+    console.log(presidentialAspirants[req.params.aspirant])
+})
 
 app.listen(PORT, () => {
     console.log(`PRESIDENTIAL ASPIRANTS API SERVER IS RUNNING ON PORT ${PORT}.`)
