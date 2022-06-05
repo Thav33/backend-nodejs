@@ -46,6 +46,13 @@ const presidentialAspirants = {
         party: 'People\'s Democratic Party (PDP)',
         currentPosition: 'Commander (CON)'
     },
+    'unknown': {
+        fullname: 'unknown',
+        dob: 'unknown',
+        origin: 'unknown',
+        party: 'unknown',
+        currentPosition: 'unknown'
+    },
 }
 //--- end presidential aspirants object
 
@@ -60,9 +67,12 @@ app.get('/api', (req, res) => {
 
 //when user makes '/api/aspirants' request, respond with object of the requested param
 app.get('/api/:aspirant', (req, res) => {
-    res.json(presidentialAspirants[req.params.aspirant])
+    const aspirantDetail = req.params.aspirant;
 
-    console.log(presidentialAspirants[req.params.aspirant])
+//condition to check if an aspirant request exist. if true, respond with aspirant details else respond with 'unknown'
+    (presidentialAspirants[aspirantDetail]) ? res.json(presidentialAspirants[aspirantDetail]) : res.json(presidentialAspirants['unknownn']);
+
+    // console.log(presidentialAspirants[req.params.aspirant])
 })
 
 app.listen(PORT, () => {
