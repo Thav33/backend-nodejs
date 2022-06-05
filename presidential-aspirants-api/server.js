@@ -67,7 +67,7 @@ app.get('/api', (req, res) => {
 
 //when user makes '/api/aspirants' request, respond with object of the requested param
 app.get('/api/:aspirant', (req, res) => {
-    const aspirantDetail = req.params.aspirant;
+    const aspirantDetail = req.params.aspirant.toLowerCase();
 
 //condition to check if an aspirant request exist. if true, respond with aspirant details else respond with 'unknown'
     (presidentialAspirants[aspirantDetail]) ? res.json(presidentialAspirants[aspirantDetail]) : res.json(presidentialAspirants['unknown']);
